@@ -1,6 +1,9 @@
 {
-  "name": "angular-tree-component",
-  "version": "9.0.0-beta3",
+  "name": "@testmace/angular-tree-component",
+  "version": "9.0.0-beta2",
+  "dependencies": {
+    "mobx": "^5.15.4"
+  },
   "peerDependencies": {
     "@angular-devkit/build-angular": "~0.901.4",
     "@angular-devkit/build-ng-packagr": "~0.901.4",
@@ -15,8 +18,7 @@
     "@angular/platform-server": "^9.1.4",
     "core-js": "^3.6.5",
     "lib": "^4.1.4",
-    "lodash": "^4.17.15",
-    "mobx": "^5.15.4"
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@types/jasmine": "3.5.10",

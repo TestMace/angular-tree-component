@@ -1,28 +1,33 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "module": "es2015",
-    "moduleResolution": "node",
-    "target": "es5",
-    "outDir": "dist/",
+    "outDir": "./dist/out-tsc",
     "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "declaration": true,
-    "skipLibCheck": true,
-    "stripInternal": true,
-    "lib": ["es2015", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "paths": {
-      "angular-tree-component": ["dist/angular-tree-component"],
-      "angular-tree-component/*": ["dist/angular-tree-component/*"]
+      "@testmace/angular-tree-component": [
+        "dist/testmace/angular-tree-component/testmace-angular-tree-component",
+        "dist/testmace/angular-tree-component"
+      ],
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ]
     }
   },
-  "compileOnSave": false,
-  "buildOnSave": false,
   "angularCompilerOptions": {
-    "skipTemplateCodegen": true,
-    "enableIvy": false
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
   }
 }

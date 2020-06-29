@@ -1,14 +1,14 @@
 {
-  "name": "angular-tree-component",
-  "version": "9.0.0",
+  "name": "testmace-angular-tree-component",
+  "version": "9.0.0-beta2",
   "description": "A simple yet powerful tree component for Angular2",
   "author": "Adam Klein <adam@500tech.com>",
   "homepage": "https://github.com/500tech/angular-tree-component",
   "license": "MIT",
-  "main": "dist/angular-tree-component.umd.js",
-  "js:next": "dist/angular-tree-component.js",
-  "module": "dist/angular-tree-component.js",
-  "types": "dist/angular-tree-component.d.ts",
+  "main": "dist/testmace/angular-tree-component.umd.js",
+  "js:next": "dist/testmace/angular-tree-component.js",
+  "module": "dist/testmace/angular-tree-component.js",
+  "types": "dist/testmace/angular-tree-component.d.ts",
   "keywords": [
     "ng",
     "angular",
@@ -39,9 +39,10 @@
     "clean:typescript": "rimraf dist",
     "lint": "tslint lib/**/*.ts",
     "build": "npm run lint && npm run clean:typescript && ng build && npm run moveStyling",
-    "moveStyling": "cp projects/angular-tree-component/src/lib/angular-tree-component.css dist/angular-tree-component/lib",
-    "publish:dry": "npm publish dist/angular-tree-component --dry-run",
-    "publish:atc": "npm publish dist/angular-tree-component",
+    "build:prod": "npm run lint && npm run clean:typescript && ng build --prod && npm run moveStyling",
+    "moveStyling": "cp projects/testmace/angular-tree-component/src/lib/angular-tree-component.css dist/testmace/angular-tree-component/lib",
+    "publish:dry": "npm publish dist/testmace/angular-tree-component --dry-run",
+    "publish:atc": "npm publish dist/testmace/angular-tree-component",
     "example:cli": ".\\node_modules\\.bin\\ng && npm run moveStyling && cd example/cli && npm install && cp -rf ../../dist node_modules/angular-tree-component/ && ng serve",
     "example:cli:win": "ng build && cd example\\cli && npm install && npm install ..\\..\\ && .\\node_modules\\.bin\\ng serve",
     "selupdate": "webdriver-manager update",
@@ -53,7 +54,7 @@
     "test:debug": "./node_modules/.bin/testcafe chrome e2e/*.testcafe.js --inspect-brk",
     "test:slow": "./node_modules/.bin/testcafe chrome e2e/*.testcafe.js --speed 0.1",
     "test:setup": "npm run build && cd example/cli && npm install && cp -rf ../../dist node_modules/angular-tree-component/",
-    "prepublishOnly": "cd example/cli && npm install && cd ../../ && npm run build",
+    "prepublishOnly": "cd example/cli && npm install && cd ../../ && npm run build:prod",
     "e2e:tsc": "../node_modules/.bin/tsc --p e2e/tsconfig.json"
   },
   "files": [
@@ -66,9 +67,10 @@
   "peerDependencies": {
     "core-js": "^3.6.5"
   },
+  "private": false,
   "dependencies": {
-    "lodash": "^4.17.15",
-    "mobx": "^5.15.4"
+    "mobx": "^5.15.4",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.4",
@@ -97,7 +99,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.1",
     "ng-packagr": "^9.0.0",
-    "nightwatch": "1.3.4",
+    "nightwatch": "^1.3.6",
     "prettier": "^2.0.5",
     "protractor": "5.4.4",
     "protractor-jasmine2-html-reporter": "0.0.7",
@@ -110,43 +112,5 @@
     "typedoc": "^0.17.6",
     "typescript": "~3.8.3",
     "zone.js": "^0.10.3"
-  },
-  "repository": "https://github.com/500tech/angular-tree-component.git",
-  "bugs": {
-    "url": "https://github.com/500tech/angular-tree-component/issues"
-  },
-  "engines": {
-    "node": ">=8.0.0"
-  },
-  "collective": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/angular-tree-component"
-  },
-  "prettier": {
-    "printWidth": 80,
-    "tabWidth": 2,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "none",
-    "bracketSpacing": true,
-    "jsxBracketSameLine": true,
-    "requirePragma": false
-  },
-  "lint-staged": {
-    "*.{js,ts,json}": [
-      "./node_modules/.bin/prettier --write"
-    ],
-    "*.ts": [
-      "tslint"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "post-commit": "git reset",
-      "pre-commit": [
-        "lint-staged"
-      ]
-    }
   }
 }
